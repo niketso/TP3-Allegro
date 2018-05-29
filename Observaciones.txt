@@ -1,0 +1,14 @@
+Solucion:
+
+-Falta agregar carpeta .vs al .gitignore.
+-Falta agregar archivo .VC al .gitignore.
+-Falta agregar archivos .db al .gitignore.
+-Los assets se encuentran dentro del las librerias.
+-Falta carpeta de Assets.
+-Falta directorio de trabajo.
+-Las librerias estan al mismo nivel del proyecto.
+
+TP:
+
+-No funciona la colision del personaje con el enemigo.
+-Se debe hacer clic en una tecla para que muestre el juego. 
