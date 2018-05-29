@@ -1,0 +1,9 @@
+-Falta agregar carpeta .vs al .gitignore
+-Falta agregar archivo .VC .
+-Falta carpeta de Assets.
+-Falta directorio de trabajo.
+-Las librerias estan al mismo nivel del proyecto
+
+TP:
+-No funciona la colision del personaje con el enemigo.
+-Se debe hacer clic en una tecla para que muestre el juego. 

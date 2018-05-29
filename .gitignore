@@ -2,3 +2,7 @@
 *.ipch
 
 
+
+TP 3 Allegro/\.vs/
+
+*.db
