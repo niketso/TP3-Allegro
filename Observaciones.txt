@@ -16,3 +16,4 @@ TP:
 -No funciona la colision del personaje con el enemigo.
 -Se debe hacer clic en una tecla para que muestre el juego. 
 -No existe evento para cerrar  la ventana.
+-La creacion del personaje se inicializa en el game loop.
