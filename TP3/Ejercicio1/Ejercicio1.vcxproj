@@ -69,28 +69,31 @@
     <Import Project="$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props" Condition="exists('$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props')" Label="LocalAppDataPlatform" />
   </ImportGroup>
   <PropertyGroup Label="UserMacros" />
-  <PropertyGroup />
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
+    <OutDir>$(SolutionDir)bin\$(Platform)\$(Configuration)\</OutDir>
+    <IntDir>obj\$(Platform)\$(Configuration)\</IntDir>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">
+    <OutDir>$(SolutionDir)bin\$(Platform)\$(Configuration)\</OutDir>
+    <IntDir>obj\$(Platform)\$(Configuration)\</IntDir>
+  </PropertyGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
     <ClCompile>
       <WarningLevel>Level3</WarningLevel>
       <Optimization>Disabled</Optimization>
       <SDLCheck>true</SDLCheck>
-      <AdditionalIncludeDirectories>$(SolutionDir)Ejercicio1\Recursos Ejercicio 1\Allegro\include;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <AdditionalIncludeDirectories>$(SolutionDir)Librerias\Allegro5\Allegro_1\include;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
       <PreprocessorDefinitions>%(PreprocessorDefinitions)</PreprocessorDefinitions>
     </ClCompile>
     <Link>
-      <AdditionalLibraryDirectories>$(SolutionDir)Ejercicio1\Recursos Ejercicio 1\Allegro\lib;%(AdditionalLibraryDirectories)</AdditionalLibraryDirectories>
-      <AdditionalDependencies>allegro.lib;allegro_main.lib;allegro_image.lib;allegro_font.lib;allegro_dialog.lib;allegro_primitives.lib;%(AdditionalDependencies)</AdditionalDependencies>
+      <AdditionalLibraryDirectories>$(SolutionDir)Librerias\Allegro5\Allegro_1\lib;%(AdditionalLibraryDirectories)</AdditionalLibraryDirectories>
+      <AdditionalDependencies>allegro-debug.lib;allegro_dialog-debug.lib;allegro_image-debug.lib;%(AdditionalDependencies)</AdditionalDependencies>
       <SubSystem>Console</SubSystem>
     </Link>
     <PostBuildEvent>
-      <Command>copy "$(SolutionDir)Ejercicio1\Recursos Ejercicio 1\Allegro\bin\allegro-5.1.dll" "$(OutDir)"
-copy "$(SolutionDir)Ejercicio1\Recursos Ejercicio 1\Allegro\bin\allegro_main-5.1.dll" "$(OutDir)"
-copy "$(SolutionDir)Ejercicio1\Recursos Ejercicio 1\Allegro\bin\allegro_image-5.1.dll" "$(OutDir)"
-copy "$(SolutionDir)Ejercicio1\Recursos Ejercicio 1\Allegro\bin\allegro_font-5.1.dll" "$(OutDir)"
-copy "$(SolutionDir)Ejercicio1\Recursos Ejercicio 1\Allegro\bin\allegro_dialog-5.1.dll" "$(OutDir)"
-copy "$(SolutionDir)Ejercicio1\image.png" "$(OutDir)"
-copy "$(SolutionDir)Ejercicio1\enemy.png" "$(OutDir)"</Command>
+      <Command>COPY "$(SolutionDir)Librerias\Allegro5\Allegro_1\bin\allegro-debug-5.1.dll" "$(OutDir)"
+COPY "$(SolutionDir)Librerias\Allegro5\Allegro_1\bin\allegro_dialog-debug-5.1.dll" "$(OutDir)"
+COPY "$(SolutionDir)Librerias\Allegro5\Allegro_1\bin\allegro_image-debug-5.1.dll" "$(OutDir)"</Command>
     </PostBuildEvent>
   </ItemDefinitionGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">
@@ -107,24 +110,19 @@ copy "$(SolutionDir)Ejercicio1\enemy.png" "$(OutDir)"</Command>
       <FunctionLevelLinking>true</FunctionLevelLinking>
       <IntrinsicFunctions>true</IntrinsicFunctions>
       <SDLCheck>true</SDLCheck>
-      <AdditionalIncludeDirectories>"$(SolutionDir)Ejercicio1\Recursos Ejercicio 1\Allegro\include";%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <AdditionalIncludeDirectories>$(SolutionDir)Librerias\Allegro5\Allegro_1\include;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
       <PreprocessorDefinitions>ALLEGRO_STATICLINK;%(PreprocessorDefinitions)</PreprocessorDefinitions>
     </ClCompile>
     <Link>
       <EnableCOMDATFolding>true</EnableCOMDATFolding>
       <OptimizeReferences>true</OptimizeReferences>
-      <AdditionalLibraryDirectories>$(SolutionDir)Ejercicio1\Recursos Ejercicio 1\Allegro\lib;"$(SolutionDir)Ejercicio1\Recursos Ejercicio 1\Allegro_Dependencies\lib";%(AdditionalLibraryDirectories)</AdditionalLibraryDirectories>
-      <AdditionalDependencies>allegro-static.lib;allegro_main-static.lib;allegro_image-static.lib;allegro_font-static.lib;allegro_dialog-static.lib;allegro_primitives-static.lib;winmm.lib;opengl32.lib;psapi.lib;shlwapi.lib;jpeg.lib;libpng16.lib;zlib.lib;%(AdditionalDependencies)</AdditionalDependencies>
+      <AdditionalLibraryDirectories>$(SolutionDir)Librerias\Allegro5\Allegro_Deps\lib;$(SolutionDir)Librerias\Allegro5\Allegro_1\lib;%(AdditionalLibraryDirectories)</AdditionalLibraryDirectories>
+      <AdditionalDependencies>allegro-static.lib;allegro_dialog-static.lib;allegro_image-static.lib;winmm.lib;opengl32.lib;psapi.lib;shlwapi.lib;jpeg.lib;libpng16.lib;zlib.lib;%(AdditionalDependencies)</AdditionalDependencies>
       <SubSystem>Windows</SubSystem>
     </Link>
     <PostBuildEvent>
-      <Command>copy "$(SolutionDir)Ejercicio1\Recursos Ejercicio 1\Allegro\bin\allegro-5.1.dll" "$(OutDir)"
-copy "$(SolutionDir)Ejercicio1\Recursos Ejercicio 1\Allegro\bin\allegro_main-5.1.dll" "$(OutDir)"
-copy "$(SolutionDir)Ejercicio1\Recursos Ejercicio 1\Allegro\bin\allegro_image-5.1.dll" "$(OutDir)"
-copy "$(SolutionDir)Ejercicio1\Recursos Ejercicio 1\Allegro\bin\allegro_font-5.1.dll" "$(OutDir)"
-copy "$(SolutionDir)Ejercicio1\Recursos Ejercicio 1\Allegro\bin\allegro_dialog-5.1.dll" "$(OutDir)"
-copy "$(SolutionDir)Ejercicio1\image.png" "$(OutDir)"
-copy "$(SolutionDir)Ejercicio1\enemy.png" "$(OutDir)"</Command>
+      <Command>
+      </Command>
     </PostBuildEvent>
   </ItemDefinitionGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Release|x64'">

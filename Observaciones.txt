@@ -6,9 +6,13 @@ Solucion:
 -Los assets se encuentran dentro del las librerias.
 -Falta carpeta de Assets.
 -Falta directorio de trabajo.
+-Falta directorio de salida.
+-Falta directorio de archivos intermedios.
 -Las librerias estan al mismo nivel del proyecto.
+-Copia .dll a las librerias estaticas.
 
 TP:
 
 -No funciona la colision del personaje con el enemigo.
 -Se debe hacer clic en una tecla para que muestre el juego. 
+-No existe evento para cerrar  la ventana.
