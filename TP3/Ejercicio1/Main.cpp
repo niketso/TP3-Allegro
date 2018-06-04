@@ -19,14 +19,16 @@ int main(int argc, char **argv) {
 
 	//Player *p1 = new Player();
 	bool gameOver = false;
+	bool collision = false;
 	bool redraw = true;
 	bool key[4] = { false, false, false, false };        
-	int player_x = 10;
-	int player_y = 10;
-
+	int player_x = 11;
+	int player_y = 11;
+	int lives = 3; 
 	int speedMov = 5;
-	int enemy_x = 500;
-	int enemy_y = 300;
+	int enemy_x = 300;
+	int enemy_y = 200;
+	
 	
 	ALLEGRO_DISPLAY *display = NULL;                     //ventana
 	ALLEGRO_BITMAP *image = NULL;                        //Player
@@ -65,8 +67,8 @@ int main(int argc, char **argv) {
 	}
 
 	//carga
-	image = al_load_bitmap("image.png");
-	enemy = al_load_bitmap("enemy.png");
+	image = al_load_bitmap("Nave.png");
+	enemy = al_load_bitmap("Enemy.png");
 
 	if (!image) {
 		al_show_native_message_box(display, "Error", "Error", "Failed to load image!",
@@ -105,6 +107,7 @@ int main(int argc, char **argv) {
 		if (events.type == ALLEGRO_EVENT_TIMER) {
 			if (key[KEY_UP] && player_y >= speedMov) {
 				player_y -= speedMov;
+
 			}
 
 			if (key[KEY_DOWN] && player_y <= SCREEN_H - PLAYER_SIZE - speedMov) {
@@ -120,6 +123,8 @@ int main(int argc, char **argv) {
 			}
 
 			redraw = true;
+			
+
 		}
 		else if (events.type == ALLEGRO_EVENT_DISPLAY_CLOSE) {
 			break;
@@ -177,9 +182,19 @@ int main(int argc, char **argv) {
 		if (((player_x < enemy_x + ENEMY_SIZE) && (enemy_x < player_x + PLAYER_SIZE)
 			&& (player_y < enemy_y + ENEMY_SIZE) && (enemy_y < player_y + PLAYER_SIZE))) 
 		{
-			gameOver = true;
+			lives--;						
+			player_x = 10;
+			player_y = 10;
+			//agregar sonido.
+
+			
 		}
+			if (lives < 1) 
+			{
+				gameOver = true;			
+			}
 		
+				
 	}
 
 	al_destroy_display(display);
